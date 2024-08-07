@@ -20,3 +20,16 @@ single_test1:
 single_alexnet:
 	export LD_LIBRARY_PATH=./DRAMsim3:$$LD_LIBRARY_PATH &&\
 	./mnpusim arch_config/core_architecture_list/tpu.txt network_config/netconfig_list/single/alexnet_out_im2col.txt dram_config/total_dram_config/single_hbm2_256gbs.cfg npumem_config/npumem_architecture_list/single.txt single_alexnet misc_config/single.cfg
+
+
+gpt3-7b:
+	export LD_LIBRARY_PATH=./DRAMsim3:$$LD_LIBRARY_PATH &&\
+	./mnpusim arch_config/core_architecture_list/tpu.txt network_config/netconfig_list/single/gpt3-7b.txt dram_config/total_dram_config/single_hbm2_256gbs.cfg npumem_config/npumem_architecture_list/single.txt singe_gpt3-7b misc_config/single.cfg
+
+gpt3-13b:
+	export LD_LIBRARY_PATH=./DRAMsim3:$$LD_LIBRARY_PATH &&\
+	./mnpusim arch_config/core_architecture_list/tpu.txt network_config/netconfig_list/single/gpt3-13b.txt dram_config/total_dram_config/single_hbm2_256gbs.cfg npumem_config/npumem_architecture_list/single.txt singe_gpt3-13b misc_config/single.cfg
+
+gpt3-30b:
+	export LD_LIBRARY_PATH=./DRAMsim3:$$LD_LIBRARY_PATH &&\
+	./mnpusim arch_config/core_architecture_list/tpu.txt network_config/netconfig_list/single/gpt3-30b.txt dram_config/total_dram_config/single_hbm2_256gbs.cfg npumem_config/npumem_architecture_list/single.txt singe_gpt3-30b misc_config/single.cfg

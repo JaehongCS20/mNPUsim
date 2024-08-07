@@ -1,0 +1,1597 @@
+export LD_LIBRARY_PATH=./DRAMsim3:$LD_LIBRARY_PATH &&\
+./mnpusim arch_config/core_architecture_list/tpu.txt network_config/netconfig_list/single/gpt3-13b.txt dram_config/total_dram_config/single_hbm2_256gbs.cfg npumem_config/npumem_architecture_list/single.txt singe_gpt3-13b misc_config/single.cfg
+Page size: 0x1000B
+DRAM configuration file name: dram_config/single_dram_config/HBM2_8Gb_x128.ini
+1 Modules in total
+parsing result
+1. arch_parsing
+arch_name: arch_tpu_small
+systolic_array(width x height): 128 x 128
+sram_size(ifmap, filter, ofmap): 12582912, 12582912, 12582912 Bytes
+tile_size(ifmap, filter, ofmap): 6291456, 6291456, 6291456 Bytes
+dataflow: os
+element_unit: 1 Bytes
+unit_compute: 1
+2. network_parsing
+model_name, layer_name, ifmap(width x height x channel), filter(width x height x channel x # of filter), stride, layer_type, ifmap_base_addr, filter_base_addr, ofmap_base_addr
+gpt3-13b, QKT, 128 x 512 x 1, 512 x 128 x 1 x 1, 1, Gemm, 18446744073709551615, 18446744073709551615, 18446744073709551615
+gpt3-13b, QKTV, 512 x 512 x 1, 128 x 512 x 1 x 1, 1, Gemm, 18446744073709551614, 18446744073709551614, 18446744073709551615
+gpt3-13b, Linear1, 5120 x 512 x 1, 15420 x 5120 x 1 x 1, 1, Gemm, 18446744073709551614, 18446744073709551614, 18446744073709551615
+gpt3-13b, Linear2, 5120 x 512 x 1, 5120 x 5120 x 1 x 1, 1, Gemm, 18446744073709551614, 18446744073709551614, 18446744073709551615
+gpt3-13b, PW-FF-L1, 5120 x 512 x 1, 20560 x 5120 x 1 x 1, 1, Gemm, 18446744073709551614, 18446744073709551614, 18446744073709551615
+gpt3-13b, PW-FF-L2, 20560 x 512 x 1, 5120 x 20560 x 1 x 1, 1, Gemm, 18446744073709551614, 18446744073709551614, 18446744073709551615
+---------------------------------------------------------------------------
+processing: 1 / 6
+processing: 2 / 6
+processing: 3 / 6
+processing: 4 / 6
+processing: 5 / 6
+processing: 6 / 6
+intermediate_config_name: singe_gpt3-13b/intermediate_config/gpt3-13b0.csv
+parsing result
+1. arch_parsing
+arch_name: arch_tpu_small
+systolic_array(width x height): 128 x 128
+sram_size(ifmap, filter, ofmap): 12582912, 12582912, 12582912 Bytes
+tile_size(ifmap, filter, ofmap): 6291456, 6291456, 6291456 Bytes
+dataflow: os
+element_unit: 1 Bytes
+unit_compute: 1
+2. network_parsing
+model_name, layer_name, ifmap(width x height x channel), filter(width x height x channel x # of filter), stride, layer_type, ifmap_base_addr, filter_base_addr, ofmap_base_addr
+gpt3-13b0, QKT_T0, 1 x 512 x 128, 1 x 1 x 128 x 512, 1, Conv, 0, 0, 131072
+gpt3-13b0, QKTV_T0, 1 x 512 x 512, 1 x 1 x 512 x 128, 1, Conv, 393216, 655360, 720896
+gpt3-13b0, Linear1_T0, 1 x 512 x 204, 1 x 1 x 204 x 12288, 1, Conv, 786432, 3407872, 82358272
+gpt3-13b0, Linear1_T1, 1 x 512 x 204, 1 x 1 x 204 x 3132, 1, Conv, 786432, 5914624, 88649728
+gpt3-13b0, Linear1_T2, 1 x 512 x 204, 1 x 1 x 204 x 12288, 1, Conv, 890880, 6553552, 82358272
+gpt3-13b0, Linear1_T3, 1 x 512 x 204, 1 x 1 x 204 x 3132, 1, Conv, 890880, 9060304, 88649728
+gpt3-13b0, Linear1_T4, 1 x 512 x 204, 1 x 1 x 204 x 12288, 1, Conv, 995328, 9699232, 82358272
+gpt3-13b0, Linear1_T5, 1 x 512 x 204, 1 x 1 x 204 x 3132, 1, Conv, 995328, 12205984, 88649728
+gpt3-13b0, Linear1_T6, 1 x 512 x 204, 1 x 1 x 204 x 12288, 1, Conv, 1099776, 12844912, 82358272
+gpt3-13b0, Linear1_T7, 1 x 512 x 204, 1 x 1 x 204 x 3132, 1, Conv, 1099776, 15351664, 88649728
+gpt3-13b0, Linear1_T8, 1 x 512 x 204, 1 x 1 x 204 x 12288, 1, Conv, 1204224, 15990592, 82358272
+gpt3-13b0, Linear1_T9, 1 x 512 x 204, 1 x 1 x 204 x 3132, 1, Conv, 1204224, 18497344, 88649728
+gpt3-13b0, Linear1_T10, 1 x 512 x 204, 1 x 1 x 204 x 12288, 1, Conv, 1308672, 19136272, 82358272
+gpt3-13b0, Linear1_T11, 1 x 512 x 204, 1 x 1 x 204 x 3132, 1, Conv, 1308672, 21643024, 88649728
+gpt3-13b0, Linear1_T12, 1 x 512 x 204, 1 x 1 x 204 x 12288, 1, Conv, 1413120, 22281952, 82358272
+gpt3-13b0, Linear1_T13, 1 x 512 x 204, 1 x 1 x 204 x 3132, 1, Conv, 1413120, 24788704, 88649728
+gpt3-13b0, Linear1_T14, 1 x 512 x 204, 1 x 1 x 204 x 12288, 1, Conv, 1517568, 25427632, 82358272
+gpt3-13b0, Linear1_T15, 1 x 512 x 204, 1 x 1 x 204 x 3132, 1, Conv, 1517568, 27934384, 88649728
+gpt3-13b0, Linear1_T16, 1 x 512 x 204, 1 x 1 x 204 x 12288, 1, Conv, 1622016, 28573312, 82358272
+gpt3-13b0, Linear1_T17, 1 x 512 x 204, 1 x 1 x 204 x 3132, 1, Conv, 1622016, 31080064, 88649728
+gpt3-13b0, Linear1_T18, 1 x 512 x 204, 1 x 1 x 204 x 12288, 1, Conv, 1726464, 31718992, 82358272
+gpt3-13b0, Linear1_T19, 1 x 512 x 204, 1 x 1 x 204 x 3132, 1, Conv, 1726464, 34225744, 88649728
+gpt3-13b0, Linear1_T20, 1 x 512 x 204, 1 x 1 x 204 x 12288, 1, Conv, 1830912, 34864672, 82358272
+gpt3-13b0, Linear1_T21, 1 x 512 x 204, 1 x 1 x 204 x 3132, 1, Conv, 1830912, 37371424, 88649728
+gpt3-13b0, Linear1_T22, 1 x 512 x 204, 1 x 1 x 204 x 12288, 1, Conv, 1935360, 38010352, 82358272
+gpt3-13b0, Linear1_T23, 1 x 512 x 204, 1 x 1 x 204 x 3132, 1, Conv, 1935360, 40517104, 88649728
+gpt3-13b0, Linear1_T24, 1 x 512 x 204, 1 x 1 x 204 x 12288, 1, Conv, 2039808, 41156032, 82358272
+gpt3-13b0, Linear1_T25, 1 x 512 x 204, 1 x 1 x 204 x 3132, 1, Conv, 2039808, 43662784, 88649728
+gpt3-13b0, Linear1_T26, 1 x 512 x 204, 1 x 1 x 204 x 12288, 1, Conv, 2144256, 44301712, 82358272
+gpt3-13b0, Linear1_T27, 1 x 512 x 204, 1 x 1 x 204 x 3132, 1, Conv, 2144256, 46808464, 88649728
+gpt3-13b0, Linear1_T28, 1 x 512 x 204, 1 x 1 x 204 x 12288, 1, Conv, 2248704, 47447392, 82358272
+gpt3-13b0, Linear1_T29, 1 x 512 x 204, 1 x 1 x 204 x 3132, 1, Conv, 2248704, 49954144, 88649728
+gpt3-13b0, Linear1_T30, 1 x 512 x 204, 1 x 1 x 204 x 12288, 1, Conv, 2353152, 50593072, 82358272
+gpt3-13b0, Linear1_T31, 1 x 512 x 204, 1 x 1 x 204 x 3132, 1, Conv, 2353152, 53099824, 88649728
+gpt3-13b0, Linear1_T32, 1 x 512 x 204, 1 x 1 x 204 x 12288, 1, Conv, 2457600, 53738752, 82358272
+gpt3-13b0, Linear1_T33, 1 x 512 x 204, 1 x 1 x 204 x 3132, 1, Conv, 2457600, 56245504, 88649728
+gpt3-13b0, Linear1_T34, 1 x 512 x 204, 1 x 1 x 204 x 12288, 1, Conv, 2562048, 56884432, 82358272
+gpt3-13b0, Linear1_T35, 1 x 512 x 204, 1 x 1 x 204 x 3132, 1, Conv, 2562048, 59391184, 88649728
+gpt3-13b0, Linear1_T36, 1 x 512 x 204, 1 x 1 x 204 x 12288, 1, Conv, 2666496, 60030112, 82358272
+gpt3-13b0, Linear1_T37, 1 x 512 x 204, 1 x 1 x 204 x 3132, 1, Conv, 2666496, 62536864, 88649728
+gpt3-13b0, Linear1_T38, 1 x 512 x 204, 1 x 1 x 204 x 12288, 1, Conv, 2770944, 63175792, 82358272
+gpt3-13b0, Linear1_T39, 1 x 512 x 204, 1 x 1 x 204 x 3132, 1, Conv, 2770944, 65682544, 88649728
+gpt3-13b0, Linear1_T40, 1 x 512 x 204, 1 x 1 x 204 x 12288, 1, Conv, 2875392, 66321472, 82358272
+gpt3-13b0, Linear1_T41, 1 x 512 x 204, 1 x 1 x 204 x 3132, 1, Conv, 2875392, 68828224, 88649728
+gpt3-13b0, Linear1_T42, 1 x 512 x 204, 1 x 1 x 204 x 12288, 1, Conv, 2979840, 69467152, 82358272
+gpt3-13b0, Linear1_T43, 1 x 512 x 204, 1 x 1 x 204 x 3132, 1, Conv, 2979840, 71973904, 88649728
+gpt3-13b0, Linear1_T44, 1 x 512 x 204, 1 x 1 x 204 x 12288, 1, Conv, 3084288, 72612832, 82358272
+gpt3-13b0, Linear1_T45, 1 x 512 x 204, 1 x 1 x 204 x 3132, 1, Conv, 3084288, 75119584, 88649728
+gpt3-13b0, Linear1_T46, 1 x 512 x 204, 1 x 1 x 204 x 12288, 1, Conv, 3188736, 75758512, 82358272
+gpt3-13b0, Linear1_T47, 1 x 512 x 204, 1 x 1 x 204 x 3132, 1, Conv, 3188736, 78265264, 88649728
+gpt3-13b0, Linear1_T48, 1 x 512 x 204, 1 x 1 x 204 x 12288, 1, Conv, 3293184, 78904192, 82358272
+gpt3-13b0, Linear1_T49, 1 x 512 x 204, 1 x 1 x 204 x 3132, 1, Conv, 3293184, 81410944, 88649728
+gpt3-13b0, Linear1_T50, 1 x 512 x 20, 1 x 1 x 20 x 12288, 1, Conv, 3397632, 82049872, 82358272
+gpt3-13b0, Linear1_T51, 1 x 512 x 20, 1 x 1 x 20 x 3132, 1, Conv, 3397632, 82295632, 88649728
+gpt3-13b0, Linear2_T0, 1 x 512 x 1228, 1 x 1 x 1228 x 5120, 1, Conv, 90253312, 92874752, 119089152
+gpt3-13b0, Linear2_T1, 1 x 512 x 1228, 1 x 1 x 1228 x 5120, 1, Conv, 90882048, 99162112, 119089152
+gpt3-13b0, Linear2_T2, 1 x 512 x 1228, 1 x 1 x 1228 x 5120, 1, Conv, 91510784, 105449472, 119089152
+gpt3-13b0, Linear2_T3, 1 x 512 x 1228, 1 x 1 x 1228 x 5120, 1, Conv, 92139520, 111736832, 119089152
+gpt3-13b0, Linear2_T4, 1 x 512 x 208, 1 x 1 x 208 x 5120, 1, Conv, 92768256, 118024192, 119089152
+gpt3-13b0, PW-FF-L1_T0, 1 x 512 x 204, 1 x 1 x 204 x 12288, 1, Conv, 121710592, 124332032, 229599232
+gpt3-13b0, PW-FF-L1_T1, 1 x 512 x 204, 1 x 1 x 204 x 8272, 1, Conv, 121710592, 126838784, 235890688
+gpt3-13b0, PW-FF-L1_T2, 1 x 512 x 204, 1 x 1 x 204 x 12288, 1, Conv, 121815040, 128526272, 229599232
+gpt3-13b0, PW-FF-L1_T3, 1 x 512 x 204, 1 x 1 x 204 x 8272, 1, Conv, 121815040, 131033024, 235890688
+gpt3-13b0, PW-FF-L1_T4, 1 x 512 x 204, 1 x 1 x 204 x 12288, 1, Conv, 121919488, 132720512, 229599232
+gpt3-13b0, PW-FF-L1_T5, 1 x 512 x 204, 1 x 1 x 204 x 8272, 1, Conv, 121919488, 135227264, 235890688
+gpt3-13b0, PW-FF-L1_T6, 1 x 512 x 204, 1 x 1 x 204 x 12288, 1, Conv, 122023936, 136914752, 229599232
+gpt3-13b0, PW-FF-L1_T7, 1 x 512 x 204, 1 x 1 x 204 x 8272, 1, Conv, 122023936, 139421504, 235890688
+gpt3-13b0, PW-FF-L1_T8, 1 x 512 x 204, 1 x 1 x 204 x 12288, 1, Conv, 122128384, 141108992, 229599232
+gpt3-13b0, PW-FF-L1_T9, 1 x 512 x 204, 1 x 1 x 204 x 8272, 1, Conv, 122128384, 143615744, 235890688
+gpt3-13b0, PW-FF-L1_T10, 1 x 512 x 204, 1 x 1 x 204 x 12288, 1, Conv, 122232832, 145303232, 229599232
+gpt3-13b0, PW-FF-L1_T11, 1 x 512 x 204, 1 x 1 x 204 x 8272, 1, Conv, 122232832, 147809984, 235890688
+gpt3-13b0, PW-FF-L1_T12, 1 x 512 x 204, 1 x 1 x 204 x 12288, 1, Conv, 122337280, 149497472, 229599232
+gpt3-13b0, PW-FF-L1_T13, 1 x 512 x 204, 1 x 1 x 204 x 8272, 1, Conv, 122337280, 152004224, 235890688
+gpt3-13b0, PW-FF-L1_T14, 1 x 512 x 204, 1 x 1 x 204 x 12288, 1, Conv, 122441728, 153691712, 229599232
+gpt3-13b0, PW-FF-L1_T15, 1 x 512 x 204, 1 x 1 x 204 x 8272, 1, Conv, 122441728, 156198464, 235890688
+gpt3-13b0, PW-FF-L1_T16, 1 x 512 x 204, 1 x 1 x 204 x 12288, 1, Conv, 122546176, 157885952, 229599232
+gpt3-13b0, PW-FF-L1_T17, 1 x 512 x 204, 1 x 1 x 204 x 8272, 1, Conv, 122546176, 160392704, 235890688
+gpt3-13b0, PW-FF-L1_T18, 1 x 512 x 204, 1 x 1 x 204 x 12288, 1, Conv, 122650624, 162080192, 229599232
+gpt3-13b0, PW-FF-L1_T19, 1 x 512 x 204, 1 x 1 x 204 x 8272, 1, Conv, 122650624, 164586944, 235890688
+gpt3-13b0, PW-FF-L1_T20, 1 x 512 x 204, 1 x 1 x 204 x 12288, 1, Conv, 122755072, 166274432, 229599232
+gpt3-13b0, PW-FF-L1_T21, 1 x 512 x 204, 1 x 1 x 204 x 8272, 1, Conv, 122755072, 168781184, 235890688
+gpt3-13b0, PW-FF-L1_T22, 1 x 512 x 204, 1 x 1 x 204 x 12288, 1, Conv, 122859520, 170468672, 229599232
+gpt3-13b0, PW-FF-L1_T23, 1 x 512 x 204, 1 x 1 x 204 x 8272, 1, Conv, 122859520, 172975424, 235890688
+gpt3-13b0, PW-FF-L1_T24, 1 x 512 x 204, 1 x 1 x 204 x 12288, 1, Conv, 122963968, 174662912, 229599232
+gpt3-13b0, PW-FF-L1_T25, 1 x 512 x 204, 1 x 1 x 204 x 8272, 1, Conv, 122963968, 177169664, 235890688
+gpt3-13b0, PW-FF-L1_T26, 1 x 512 x 204, 1 x 1 x 204 x 12288, 1, Conv, 123068416, 178857152, 229599232
+gpt3-13b0, PW-FF-L1_T27, 1 x 512 x 204, 1 x 1 x 204 x 8272, 1, Conv, 123068416, 181363904, 235890688
+gpt3-13b0, PW-FF-L1_T28, 1 x 512 x 204, 1 x 1 x 204 x 12288, 1, Conv, 123172864, 183051392, 229599232
+gpt3-13b0, PW-FF-L1_T29, 1 x 512 x 204, 1 x 1 x 204 x 8272, 1, Conv, 123172864, 185558144, 235890688
+gpt3-13b0, PW-FF-L1_T30, 1 x 512 x 204, 1 x 1 x 204 x 12288, 1, Conv, 123277312, 187245632, 229599232
+gpt3-13b0, PW-FF-L1_T31, 1 x 512 x 204, 1 x 1 x 204 x 8272, 1, Conv, 123277312, 189752384, 235890688
+gpt3-13b0, PW-FF-L1_T32, 1 x 512 x 204, 1 x 1 x 204 x 12288, 1, Conv, 123381760, 191439872, 229599232
+gpt3-13b0, PW-FF-L1_T33, 1 x 512 x 204, 1 x 1 x 204 x 8272, 1, Conv, 123381760, 193946624, 235890688
+gpt3-13b0, PW-FF-L1_T34, 1 x 512 x 204, 1 x 1 x 204 x 12288, 1, Conv, 123486208, 195634112, 229599232
+gpt3-13b0, PW-FF-L1_T35, 1 x 512 x 204, 1 x 1 x 204 x 8272, 1, Conv, 123486208, 198140864, 235890688
+gpt3-13b0, PW-FF-L1_T36, 1 x 512 x 204, 1 x 1 x 204 x 12288, 1, Conv, 123590656, 199828352, 229599232
+gpt3-13b0, PW-FF-L1_T37, 1 x 512 x 204, 1 x 1 x 204 x 8272, 1, Conv, 123590656, 202335104, 235890688
+gpt3-13b0, PW-FF-L1_T38, 1 x 512 x 204, 1 x 1 x 204 x 12288, 1, Conv, 123695104, 204022592, 229599232
+gpt3-13b0, PW-FF-L1_T39, 1 x 512 x 204, 1 x 1 x 204 x 8272, 1, Conv, 123695104, 206529344, 235890688
+gpt3-13b0, PW-FF-L1_T40, 1 x 512 x 204, 1 x 1 x 204 x 12288, 1, Conv, 123799552, 208216832, 229599232
+gpt3-13b0, PW-FF-L1_T41, 1 x 512 x 204, 1 x 1 x 204 x 8272, 1, Conv, 123799552, 210723584, 235890688
+gpt3-13b0, PW-FF-L1_T42, 1 x 512 x 204, 1 x 1 x 204 x 12288, 1, Conv, 123904000, 212411072, 229599232
+gpt3-13b0, PW-FF-L1_T43, 1 x 512 x 204, 1 x 1 x 204 x 8272, 1, Conv, 123904000, 214917824, 235890688
+gpt3-13b0, PW-FF-L1_T44, 1 x 512 x 204, 1 x 1 x 204 x 12288, 1, Conv, 124008448, 216605312, 229599232
+gpt3-13b0, PW-FF-L1_T45, 1 x 512 x 204, 1 x 1 x 204 x 8272, 1, Conv, 124008448, 219112064, 235890688
+gpt3-13b0, PW-FF-L1_T46, 1 x 512 x 204, 1 x 1 x 204 x 12288, 1, Conv, 124112896, 220799552, 229599232
+gpt3-13b0, PW-FF-L1_T47, 1 x 512 x 204, 1 x 1 x 204 x 8272, 1, Conv, 124112896, 223306304, 235890688
+gpt3-13b0, PW-FF-L1_T48, 1 x 512 x 204, 1 x 1 x 204 x 12288, 1, Conv, 124217344, 224993792, 229599232
+gpt3-13b0, PW-FF-L1_T49, 1 x 512 x 204, 1 x 1 x 204 x 8272, 1, Conv, 124217344, 227500544, 235890688
+gpt3-13b0, PW-FF-L1_T50, 1 x 512 x 20, 1 x 1 x 20 x 12288, 1, Conv, 124321792, 229188032, 229599232
+gpt3-13b0, PW-FF-L1_T51, 1 x 512 x 20, 1 x 1 x 20 x 8272, 1, Conv, 124321792, 229433792, 235890688
+gpt3-13b0, PW-FF-L2_T0, 1 x 512 x 1228, 1 x 1 x 1228 x 5120, 1, Conv, 240125952, 250652672, 355919872
+gpt3-13b0, PW-FF-L2_T1, 1 x 512 x 1228, 1 x 1 x 1228 x 5120, 1, Conv, 240754688, 256940032, 355919872
+gpt3-13b0, PW-FF-L2_T2, 1 x 512 x 1228, 1 x 1 x 1228 x 5120, 1, Conv, 241383424, 263227392, 355919872
+gpt3-13b0, PW-FF-L2_T3, 1 x 512 x 1228, 1 x 1 x 1228 x 5120, 1, Conv, 242012160, 269514752, 355919872
+gpt3-13b0, PW-FF-L2_T4, 1 x 512 x 1228, 1 x 1 x 1228 x 5120, 1, Conv, 242640896, 275802112, 355919872
+gpt3-13b0, PW-FF-L2_T5, 1 x 512 x 1228, 1 x 1 x 1228 x 5120, 1, Conv, 243269632, 282089472, 355919872
+gpt3-13b0, PW-FF-L2_T6, 1 x 512 x 1228, 1 x 1 x 1228 x 5120, 1, Conv, 243898368, 288376832, 355919872
+gpt3-13b0, PW-FF-L2_T7, 1 x 512 x 1228, 1 x 1 x 1228 x 5120, 1, Conv, 244527104, 294664192, 355919872
+gpt3-13b0, PW-FF-L2_T8, 1 x 512 x 1228, 1 x 1 x 1228 x 5120, 1, Conv, 245155840, 300951552, 355919872
+gpt3-13b0, PW-FF-L2_T9, 1 x 512 x 1228, 1 x 1 x 1228 x 5120, 1, Conv, 245784576, 307238912, 355919872
+gpt3-13b0, PW-FF-L2_T10, 1 x 512 x 1228, 1 x 1 x 1228 x 5120, 1, Conv, 246413312, 313526272, 355919872
+gpt3-13b0, PW-FF-L2_T11, 1 x 512 x 1228, 1 x 1 x 1228 x 5120, 1, Conv, 247042048, 319813632, 355919872
+gpt3-13b0, PW-FF-L2_T12, 1 x 512 x 1228, 1 x 1 x 1228 x 5120, 1, Conv, 247670784, 326100992, 355919872
+gpt3-13b0, PW-FF-L2_T13, 1 x 512 x 1228, 1 x 1 x 1228 x 5120, 1, Conv, 248299520, 332388352, 355919872
+gpt3-13b0, PW-FF-L2_T14, 1 x 512 x 1228, 1 x 1 x 1228 x 5120, 1, Conv, 248928256, 338675712, 355919872
+gpt3-13b0, PW-FF-L2_T15, 1 x 512 x 1228, 1 x 1 x 1228 x 5120, 1, Conv, 249556992, 344963072, 355919872
+gpt3-13b0, PW-FF-L2_T16, 1 x 512 x 912, 1 x 1 x 912 x 5120, 1, Conv, 250185728, 351250432, 355919872
+---------------------------------------------------------------------------
+Page address: 0x0 ~ 0x200000000
+NPU-0 with DRAM partition 8589934592 B, Local SPM 37748736 B, and 8-way TLB with 2048 entries
+Assigned SPM idx: 0, 1
+8 PTWs with miss latency of 400
+TLB hit latency: 5 / miss latency: 400 / bandwidth: 0 access per cycle
+vpn_bitmask: 0xfffffffffff00000
+set_bitmask: 0xff000
+Separated PTW. No partitioning applied.
+Pre-run of NPU 0
+prerunning: 1 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 2 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 3 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 4 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 5 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 6 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 7 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 8 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 9 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 10 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 11 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 12 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 13 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 14 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 15 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 16 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 17 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 18 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 19 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 20 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 21 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 22 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 23 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 24 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 25 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 26 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 27 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 28 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 29 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 30 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 31 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 32 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 33 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 34 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 35 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 36 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 37 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 38 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 39 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 40 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 41 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 42 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 43 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 44 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 45 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 46 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 47 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 48 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 49 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 50 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 51 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 52 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 53 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 54 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 55 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 56 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 57 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 58 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 59 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 60 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 61 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 62 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 63 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 64 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 65 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 66 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 67 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 68 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 69 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 70 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 71 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 72 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 73 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 74 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 75 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 76 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 77 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 78 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 79 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 80 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 81 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 82 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 83 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 84 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 85 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 86 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 87 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 88 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 89 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 90 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 91 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 92 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 93 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 94 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 95 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 96 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 97 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 98 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 99 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 100 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 101 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 102 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 103 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 104 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 105 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 106 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 107 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 108 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 109 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 110 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 111 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 112 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 113 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 114 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 115 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 116 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 117 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 118 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 119 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 120 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 121 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 122 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 123 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 124 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 125 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 126 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 127 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 128 / 128
+cacheline_size: 64
+tile(eff_conv): 1
+Run with 1 NPUs
+running NPU-0: 1 / 128 (starting at 0 cycle)
+Stalled request returned at tick 969: NPU-0 (compute cycle 0)
+mem_stall at tick 969 (NPU-0)
+End of layer
+(gpt3-13b0, QKT_T0, Conv): (compute_cycle 969)
+Stalled request returned at tick 6658: NPU-0 (compute cycle 3399)
+mem_stall at tick 6658 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 1 execution at tick 6658 (iteration 0 out of 1)
+running NPU-0: 2 / 128 (starting at 6658 cycle)
+Stalled request returned at tick 10827: NPU-0 (compute cycle 6658)
+mem_stall at tick 10827 (NPU-0)
+End of layer
+(gpt3-13b0, QKTV_T0, Conv): (compute_cycle 10827)
+Stalled request returned at tick 14116: NPU-0 (compute cycle 13257)
+mem_stall at tick 14116 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 2 execution at tick 14116 (iteration 0 out of 1)
+running NPU-0: 3 / 128 (starting at 14116 cycle)
+Stalled request returned at tick 46299: NPU-0 (compute cycle 14116)
+mem_stall at tick 46299 (NPU-0)
+End of layer
+(gpt3-13b0, Linear1_T0, Conv): (compute_cycle 46299)
+Stalled request returned at tick 201876: NPU-0 (compute cycle 125017)
+mem_stall at tick 201876 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 3 execution at tick 201876 (iteration 0 out of 1)
+running NPU-0: 4 / 128 (starting at 201876 cycle)
+Stalled request returned at tick 211245: NPU-0 (compute cycle 201876)
+mem_stall at tick 211245 (NPU-0)
+End of layer
+(gpt3-13b0, Linear1_T1, Conv): (compute_cycle 211245)
+Stalled request returned at tick 251618: NPU-0 (compute cycle 231959)
+mem_stall at tick 251618 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 4 execution at tick 251618 (iteration 0 out of 1)
+running NPU-0: 5 / 128 (starting at 251618 cycle)
+Stalled request returned at tick 283787: NPU-0 (compute cycle 251618)
+mem_stall at tick 283787 (NPU-0)
+End of layer
+(gpt3-13b0, Linear1_T2, Conv): (compute_cycle 283787)
+Stalled request returned at tick 426564: NPU-0 (compute cycle 362505)
+mem_stall at tick 426564 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 5 execution at tick 426564 (iteration 0 out of 1)
+running NPU-0: 6 / 128 (starting at 426564 cycle)
+Stalled request returned at tick 435933: NPU-0 (compute cycle 426564)
+mem_stall at tick 435933 (NPU-0)
+End of layer
+(gpt3-13b0, Linear1_T3, Conv): (compute_cycle 435933)
+Stalled request returned at tick 476306: NPU-0 (compute cycle 456647)
+mem_stall at tick 476306 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 6 execution at tick 476306 (iteration 0 out of 1)
+running NPU-0: 7 / 128 (starting at 476306 cycle)
+Stalled request returned at tick 508475: NPU-0 (compute cycle 476306)
+mem_stall at tick 508475 (NPU-0)
+End of layer
+(gpt3-13b0, Linear1_T4, Conv): (compute_cycle 508475)
+Stalled request returned at tick 648006: NPU-0 (compute cycle 587193)
+mem_stall at tick 648006 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 7 execution at tick 648006 (iteration 0 out of 1)
+running NPU-0: 8 / 128 (starting at 648006 cycle)
+Stalled request returned at tick 657375: NPU-0 (compute cycle 648006)
+mem_stall at tick 657375 (NPU-0)
+End of layer
+(gpt3-13b0, Linear1_T5, Conv): (compute_cycle 657375)
+Stalled request returned at tick 693702: NPU-0 (compute cycle 678089)
+mem_stall at tick 693702 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 8 execution at tick 693702 (iteration 0 out of 1)
+running NPU-0: 9 / 128 (starting at 693702 cycle)
+Stalled request returned at tick 725911: NPU-0 (compute cycle 693702)
+mem_stall at tick 725911 (NPU-0)
+End of layer
+(gpt3-13b0, Linear1_T6, Conv): (compute_cycle 725911)
+Stalled request returned at tick 864288: NPU-0 (compute cycle 804629)
+mem_stall at tick 864288 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 9 execution at tick 864288 (iteration 0 out of 1)
+running NPU-0: 10 / 128 (starting at 864288 cycle)
+Stalled request returned at tick 873969: NPU-0 (compute cycle 864288)
+mem_stall at tick 873969 (NPU-0)
+End of layer
+(gpt3-13b0, Linear1_T7, Conv): (compute_cycle 873969)
+Stalled request returned at tick 913896: NPU-0 (compute cycle 894683)
+mem_stall at tick 913896 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 10 execution at tick 913896 (iteration 0 out of 1)
+running NPU-0: 11 / 128 (starting at 913896 cycle)
+Stalled request returned at tick 946065: NPU-0 (compute cycle 913896)
+mem_stall at tick 946065 (NPU-0)
+End of layer
+(gpt3-13b0, Linear1_T8, Conv): (compute_cycle 946065)
+Stalled request returned at tick 1086796: NPU-0 (compute cycle 1024783)
+mem_stall at tick 1086796 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 11 execution at tick 1086796 (iteration 0 out of 1)
+running NPU-0: 12 / 128 (starting at 1086796 cycle)
+Stalled request returned at tick 1096347: NPU-0 (compute cycle 1086796)
+mem_stall at tick 1096347 (NPU-0)
+End of layer
+(gpt3-13b0, Linear1_T9, Conv): (compute_cycle 1096347)
+Stalled request returned at tick 1136674: NPU-0 (compute cycle 1117061)
+mem_stall at tick 1136674 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 12 execution at tick 1136674 (iteration 0 out of 1)
+running NPU-0: 13 / 128 (starting at 1136674 cycle)
+Stalled request returned at tick 1168838: NPU-0 (compute cycle 1136674)
+mem_stall at tick 1168838 (NPU-0)
+End of layer
+(gpt3-13b0, Linear1_T10, Conv): (compute_cycle 1168838)
+Stalled request returned at tick 1307169: NPU-0 (compute cycle 1247556)
+mem_stall at tick 1307169 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 13 execution at tick 1307169 (iteration 0 out of 1)
+running NPU-0: 14 / 128 (starting at 1307169 cycle)
+Stalled request returned at tick 1316538: NPU-0 (compute cycle 1307169)
+mem_stall at tick 1316538 (NPU-0)
+End of layer
+(gpt3-13b0, Linear1_T11, Conv): (compute_cycle 1316538)
+Stalled request returned at tick 1352525: NPU-0 (compute cycle 1337252)
+mem_stall at tick 1352525 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 14 execution at tick 1352525 (iteration 0 out of 1)
+running NPU-0: 15 / 128 (starting at 1352525 cycle)
+Stalled request returned at tick 1384947: NPU-0 (compute cycle 1352525)
+mem_stall at tick 1384947 (NPU-0)
+End of layer
+(gpt3-13b0, Linear1_T12, Conv): (compute_cycle 1384947)
+Stalled request returned at tick 1523278: NPU-0 (compute cycle 1463665)
+mem_stall at tick 1523278 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 15 execution at tick 1523278 (iteration 0 out of 1)
+running NPU-0: 16 / 128 (starting at 1523278 cycle)
+Stalled request returned at tick 1532661: NPU-0 (compute cycle 1523278)
+mem_stall at tick 1532661 (NPU-0)
+End of layer
+(gpt3-13b0, Linear1_T13, Conv): (compute_cycle 1532661)
+Stalled request returned at tick 1573034: NPU-0 (compute cycle 1553375)
+mem_stall at tick 1573034 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 16 execution at tick 1573034 (iteration 0 out of 1)
+running NPU-0: 17 / 128 (starting at 1573034 cycle)
+Stalled request returned at tick 1605198: NPU-0 (compute cycle 1573034)
+mem_stall at tick 1605198 (NPU-0)
+End of layer
+(gpt3-13b0, Linear1_T14, Conv): (compute_cycle 1605198)
+Stalled request returned at tick 1747189: NPU-0 (compute cycle 1683916)
+mem_stall at tick 1747189 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 17 execution at tick 1747189 (iteration 0 out of 1)
+running NPU-0: 18 / 128 (starting at 1747189 cycle)
+Stalled request returned at tick 1756558: NPU-0 (compute cycle 1747189)
+mem_stall at tick 1756558 (NPU-0)
+End of layer
+(gpt3-13b0, Linear1_T15, Conv): (compute_cycle 1756558)
+Stalled request returned at tick 1790085: NPU-0 (compute cycle 1777272)
+mem_stall at tick 1790085 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 18 execution at tick 1790085 (iteration 0 out of 1)
+running NPU-0: 19 / 128 (starting at 1790085 cycle)
+Stalled request returned at tick 1822254: NPU-0 (compute cycle 1790085)
+mem_stall at tick 1822254 (NPU-0)
+End of layer
+(gpt3-13b0, Linear1_T16, Conv): (compute_cycle 1822254)
+Stalled request returned at tick 1961045: NPU-0 (compute cycle 1900972)
+mem_stall at tick 1961045 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 19 execution at tick 1961045 (iteration 0 out of 1)
+running NPU-0: 20 / 128 (starting at 1961045 cycle)
+Stalled request returned at tick 1970414: NPU-0 (compute cycle 1961045)
+mem_stall at tick 1970414 (NPU-0)
+End of layer
+(gpt3-13b0, Linear1_T17, Conv): (compute_cycle 1970414)
+Stalled request returned at tick 2010787: NPU-0 (compute cycle 1991128)
+mem_stall at tick 2010787 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 20 execution at tick 2010787 (iteration 0 out of 1)
+running NPU-0: 21 / 128 (starting at 2010787 cycle)
+Stalled request returned at tick 2042965: NPU-0 (compute cycle 2010787)
+mem_stall at tick 2042965 (NPU-0)
+End of layer
+(gpt3-13b0, Linear1_T18, Conv): (compute_cycle 2042965)
+Stalled request returned at tick 2185296: NPU-0 (compute cycle 2121683)
+mem_stall at tick 2185296 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 21 execution at tick 2185296 (iteration 0 out of 1)
+running NPU-0: 22 / 128 (starting at 2185296 cycle)
+Stalled request returned at tick 2194660: NPU-0 (compute cycle 2185296)
+mem_stall at tick 2194660 (NPU-0)
+End of layer
+(gpt3-13b0, Linear1_T19, Conv): (compute_cycle 2194660)
+Stalled request returned at tick 2233033: NPU-0 (compute cycle 2215374)
+mem_stall at tick 2233033 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 22 execution at tick 2233033 (iteration 0 out of 1)
+running NPU-0: 23 / 128 (starting at 2233033 cycle)
+Stalled request returned at tick 2265202: NPU-0 (compute cycle 2233033)
+mem_stall at tick 2265202 (NPU-0)
+End of layer
+(gpt3-13b0, Linear1_T20, Conv): (compute_cycle 2265202)
+Stalled request returned at tick 2403627: NPU-0 (compute cycle 2343920)
+mem_stall at tick 2403627 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 23 execution at tick 2403627 (iteration 0 out of 1)
+running NPU-0: 24 / 128 (starting at 2403627 cycle)
+Stalled request returned at tick 2411791: NPU-0 (compute cycle 2403627)
+mem_stall at tick 2411791 (NPU-0)
+End of layer
+(gpt3-13b0, Linear1_T21, Conv): (compute_cycle 2411791)
+Stalled request returned at tick 2448178: NPU-0 (compute cycle 2432505)
+mem_stall at tick 2448178 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 24 execution at tick 2448178 (iteration 0 out of 1)
+running NPU-0: 25 / 128 (starting at 2448178 cycle)
+Stalled request returned at tick 2480356: NPU-0 (compute cycle 2448178)
+mem_stall at tick 2480356 (NPU-0)
+End of layer
+(gpt3-13b0, Linear1_T22, Conv): (compute_cycle 2480356)
+Stalled request returned at tick 2621091: NPU-0 (compute cycle 2559074)
+mem_stall at tick 2621091 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 25 execution at tick 2621091 (iteration 0 out of 1)
+running NPU-0: 26 / 128 (starting at 2621091 cycle)
+Stalled request returned at tick 2630455: NPU-0 (compute cycle 2621091)
+mem_stall at tick 2630455 (NPU-0)
+End of layer
+(gpt3-13b0, Linear1_T23, Conv): (compute_cycle 2630455)
+Stalled request returned at tick 2665628: NPU-0 (compute cycle 2651169)
+mem_stall at tick 2665628 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 26 execution at tick 2665628 (iteration 0 out of 1)
+running NPU-0: 27 / 128 (starting at 2665628 cycle)
+Stalled request returned at tick 2697797: NPU-0 (compute cycle 2665628)
+mem_stall at tick 2697797 (NPU-0)
+End of layer
+(gpt3-13b0, Linear1_T24, Conv): (compute_cycle 2697797)
+Stalled request returned at tick 2840974: NPU-0 (compute cycle 2776515)
+mem_stall at tick 2840974 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 27 execution at tick 2840974 (iteration 0 out of 1)
+running NPU-0: 28 / 128 (starting at 2840974 cycle)
+Stalled request returned at tick 2850357: NPU-0 (compute cycle 2840974)
+mem_stall at tick 2850357 (NPU-0)
+End of layer
+(gpt3-13b0, Linear1_T25, Conv): (compute_cycle 2850357)
+Stalled request returned at tick 2881484: NPU-0 (compute cycle 2871071)
+mem_stall at tick 2881484 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 28 execution at tick 2881484 (iteration 0 out of 1)
+running NPU-0: 29 / 128 (starting at 2881484 cycle)
+Stalled request returned at tick 2913747: NPU-0 (compute cycle 2881484)
+mem_stall at tick 2913747 (NPU-0)
+End of layer
+(gpt3-13b0, Linear1_T26, Conv): (compute_cycle 2913747)
+Stalled request returned at tick 3050924: NPU-0 (compute cycle 2992465)
+mem_stall at tick 3050924 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 29 execution at tick 3050924 (iteration 0 out of 1)
+running NPU-0: 30 / 128 (starting at 3050924 cycle)
+Stalled request returned at tick 3059893: NPU-0 (compute cycle 3050924)
+mem_stall at tick 3059893 (NPU-0)
+End of layer
+(gpt3-13b0, Linear1_T27, Conv): (compute_cycle 3059893)
+Stalled request returned at tick 3099480: NPU-0 (compute cycle 3080607)
+mem_stall at tick 3099480 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 30 execution at tick 3099480 (iteration 0 out of 1)
+running NPU-0: 31 / 128 (starting at 3099480 cycle)
+Stalled request returned at tick 3131663: NPU-0 (compute cycle 3099480)
+mem_stall at tick 3131663 (NPU-0)
+End of layer
+(gpt3-13b0, Linear1_T28, Conv): (compute_cycle 3131663)
+Stalled request returned at tick 3271194: NPU-0 (compute cycle 3210381)
+mem_stall at tick 3271194 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 31 execution at tick 3271194 (iteration 0 out of 1)
+running NPU-0: 32 / 128 (starting at 3271194 cycle)
+Stalled request returned at tick 3280563: NPU-0 (compute cycle 3271194)
+mem_stall at tick 3280563 (NPU-0)
+End of layer
+(gpt3-13b0, Linear1_T29, Conv): (compute_cycle 3280563)
+Stalled request returned at tick 3320936: NPU-0 (compute cycle 3301277)
+mem_stall at tick 3320936 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 32 execution at tick 3320936 (iteration 0 out of 1)
+running NPU-0: 33 / 128 (starting at 3320936 cycle)
+Stalled request returned at tick 3353100: NPU-0 (compute cycle 3320936)
+mem_stall at tick 3353100 (NPU-0)
+End of layer
+(gpt3-13b0, Linear1_T30, Conv): (compute_cycle 3353100)
+Stalled request returned at tick 3491431: NPU-0 (compute cycle 3431818)
+mem_stall at tick 3491431 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 33 execution at tick 3491431 (iteration 0 out of 1)
+running NPU-0: 34 / 128 (starting at 3491431 cycle)
+Stalled request returned at tick 3500795: NPU-0 (compute cycle 3491431)
+mem_stall at tick 3500795 (NPU-0)
+End of layer
+(gpt3-13b0, Linear1_T31, Conv): (compute_cycle 3500795)
+Stalled request returned at tick 3535568: NPU-0 (compute cycle 3521509)
+mem_stall at tick 3535568 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 34 execution at tick 3535568 (iteration 0 out of 1)
+running NPU-0: 35 / 128 (starting at 3535568 cycle)
+Stalled request returned at tick 3567737: NPU-0 (compute cycle 3535568)
+mem_stall at tick 3567737 (NPU-0)
+End of layer
+(gpt3-13b0, Linear1_T32, Conv): (compute_cycle 3567737)
+Stalled request returned at tick 3706114: NPU-0 (compute cycle 3646455)
+mem_stall at tick 3706114 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 35 execution at tick 3706114 (iteration 0 out of 1)
+running NPU-0: 36 / 128 (starting at 3706114 cycle)
+Stalled request returned at tick 3715483: NPU-0 (compute cycle 3706114)
+mem_stall at tick 3715483 (NPU-0)
+End of layer
+(gpt3-13b0, Linear1_T33, Conv): (compute_cycle 3715483)
+Stalled request returned at tick 3754304: NPU-0 (compute cycle 3736197)
+mem_stall at tick 3754304 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 36 execution at tick 3754304 (iteration 0 out of 1)
+running NPU-0: 37 / 128 (starting at 3754304 cycle)
+Stalled request returned at tick 3786482: NPU-0 (compute cycle 3754304)
+mem_stall at tick 3786482 (NPU-0)
+End of layer
+(gpt3-13b0, Linear1_T34, Conv): (compute_cycle 3786482)
+Stalled request returned at tick 3925659: NPU-0 (compute cycle 3865200)
+mem_stall at tick 3925659 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 37 execution at tick 3925659 (iteration 0 out of 1)
+running NPU-0: 38 / 128 (starting at 3925659 cycle)
+Stalled request returned at tick 3935042: NPU-0 (compute cycle 3925659)
+mem_stall at tick 3935042 (NPU-0)
+End of layer
+(gpt3-13b0, Linear1_T35, Conv): (compute_cycle 3935042)
+Stalled request returned at tick 3969769: NPU-0 (compute cycle 3955756)
+mem_stall at tick 3969769 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 38 execution at tick 3969769 (iteration 0 out of 1)
+running NPU-0: 39 / 128 (starting at 3969769 cycle)
+Stalled request returned at tick 4001989: NPU-0 (compute cycle 3969769)
+mem_stall at tick 4001989 (NPU-0)
+End of layer
+(gpt3-13b0, Linear1_T36, Conv): (compute_cycle 4001989)
+Stalled request returned at tick 4141166: NPU-0 (compute cycle 4080707)
+mem_stall at tick 4141166 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 39 execution at tick 4141166 (iteration 0 out of 1)
+running NPU-0: 40 / 128 (starting at 4141166 cycle)
+Stalled request returned at tick 4150535: NPU-0 (compute cycle 4141166)
+mem_stall at tick 4150535 (NPU-0)
+End of layer
+(gpt3-13b0, Linear1_T37, Conv): (compute_cycle 4150535)
+Stalled request returned at tick 4190908: NPU-0 (compute cycle 4171249)
+mem_stall at tick 4190908 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 40 execution at tick 4190908 (iteration 0 out of 1)
+running NPU-0: 41 / 128 (starting at 4190908 cycle)
+Stalled request returned at tick 4223086: NPU-0 (compute cycle 4190908)
+mem_stall at tick 4223086 (NPU-0)
+End of layer
+(gpt3-13b0, Linear1_T38, Conv): (compute_cycle 4223086)
+Stalled request returned at tick 4364217: NPU-0 (compute cycle 4301804)
+mem_stall at tick 4364217 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 41 execution at tick 4364217 (iteration 0 out of 1)
+running NPU-0: 42 / 128 (starting at 4364217 cycle)
+Stalled request returned at tick 4373581: NPU-0 (compute cycle 4364217)
+mem_stall at tick 4373581 (NPU-0)
+End of layer
+(gpt3-13b0, Linear1_T39, Conv): (compute_cycle 4373581)
+Stalled request returned at tick 4412708: NPU-0 (compute cycle 4394295)
+mem_stall at tick 4412708 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 42 execution at tick 4412708 (iteration 0 out of 1)
+running NPU-0: 43 / 128 (starting at 4412708 cycle)
+Stalled request returned at tick 4444877: NPU-0 (compute cycle 4412708)
+mem_stall at tick 4444877 (NPU-0)
+End of layer
+(gpt3-13b0, Linear1_T40, Conv): (compute_cycle 4444877)
+Stalled request returned at tick 4584808: NPU-0 (compute cycle 4523595)
+mem_stall at tick 4584808 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 43 execution at tick 4584808 (iteration 0 out of 1)
+running NPU-0: 44 / 128 (starting at 4584808 cycle)
+Stalled request returned at tick 4592977: NPU-0 (compute cycle 4584808)
+mem_stall at tick 4592977 (NPU-0)
+End of layer
+(gpt3-13b0, Linear1_T41, Conv): (compute_cycle 4592977)
+Stalled request returned at tick 4629637: NPU-0 (compute cycle 4613691)
+mem_stall at tick 4629637 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 44 execution at tick 4629637 (iteration 0 out of 1)
+running NPU-0: 45 / 128 (starting at 4629637 cycle)
+Stalled request returned at tick 4661801: NPU-0 (compute cycle 4629637)
+mem_stall at tick 4661801 (NPU-0)
+End of layer
+(gpt3-13b0, Linear1_T42, Conv): (compute_cycle 4661801)
+Stalled request returned at tick 4800178: NPU-0 (compute cycle 4740519)
+mem_stall at tick 4800178 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 45 execution at tick 4800178 (iteration 0 out of 1)
+running NPU-0: 46 / 128 (starting at 4800178 cycle)
+Stalled request returned at tick 4809542: NPU-0 (compute cycle 4800178)
+mem_stall at tick 4809542 (NPU-0)
+End of layer
+(gpt3-13b0, Linear1_T43, Conv): (compute_cycle 4809542)
+Stalled request returned at tick 4849469: NPU-0 (compute cycle 4830256)
+mem_stall at tick 4849469 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 46 execution at tick 4849469 (iteration 0 out of 1)
+running NPU-0: 47 / 128 (starting at 4849469 cycle)
+Stalled request returned at tick 4881638: NPU-0 (compute cycle 4849469)
+mem_stall at tick 4881638 (NPU-0)
+End of layer
+(gpt3-13b0, Linear1_T44, Conv): (compute_cycle 4881638)
+Stalled request returned at tick 5024815: NPU-0 (compute cycle 4960356)
+mem_stall at tick 5024815 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 47 execution at tick 5024815 (iteration 0 out of 1)
+running NPU-0: 48 / 128 (starting at 5024815 cycle)
+Stalled request returned at tick 5034184: NPU-0 (compute cycle 5024815)
+mem_stall at tick 5034184 (NPU-0)
+End of layer
+(gpt3-13b0, Linear1_T45, Conv): (compute_cycle 5034184)
+Stalled request returned at tick 5065371: NPU-0 (compute cycle 5054898)
+mem_stall at tick 5065371 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 48 execution at tick 5065371 (iteration 0 out of 1)
+running NPU-0: 49 / 128 (starting at 5065371 cycle)
+Stalled request returned at tick 5097747: NPU-0 (compute cycle 5065371)
+mem_stall at tick 5097747 (NPU-0)
+End of layer
+(gpt3-13b0, Linear1_T46, Conv): (compute_cycle 5097747)
+Stalled request returned at tick 5238478: NPU-0 (compute cycle 5176465)
+mem_stall at tick 5238478 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 49 execution at tick 5238478 (iteration 0 out of 1)
+running NPU-0: 50 / 128 (starting at 5238478 cycle)
+Stalled request returned at tick 5247842: NPU-0 (compute cycle 5238478)
+mem_stall at tick 5247842 (NPU-0)
+End of layer
+(gpt3-13b0, Linear1_T47, Conv): (compute_cycle 5247842)
+Stalled request returned at tick 5282569: NPU-0 (compute cycle 5268556)
+mem_stall at tick 5282569 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 50 execution at tick 5282569 (iteration 0 out of 1)
+running NPU-0: 51 / 128 (starting at 5282569 cycle)
+Stalled request returned at tick 5314738: NPU-0 (compute cycle 5282569)
+mem_stall at tick 5314738 (NPU-0)
+End of layer
+(gpt3-13b0, Linear1_T48, Conv): (compute_cycle 5314738)
+Stalled request returned at tick 5455469: NPU-0 (compute cycle 5393456)
+mem_stall at tick 5455469 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 51 execution at tick 5455469 (iteration 0 out of 1)
+running NPU-0: 52 / 128 (starting at 5455469 cycle)
+Stalled request returned at tick 5463588: NPU-0 (compute cycle 5455469)
+mem_stall at tick 5463588 (NPU-0)
+End of layer
+(gpt3-13b0, Linear1_T49, Conv): (compute_cycle 5463588)
+Stalled request returned at tick 5503237: NPU-0 (compute cycle 5484302)
+mem_stall at tick 5503237 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 52 execution at tick 5503237 (iteration 0 out of 1)
+running NPU-0: 53 / 128 (starting at 5503237 cycle)
+Stalled request returned at tick 5506606: NPU-0 (compute cycle 5503237)
+mem_stall at tick 5506606 (NPU-0)
+End of layer
+(gpt3-13b0, Linear1_T50, Conv): (compute_cycle 5506606)
+Stalled request returned at tick 5550727: NPU-0 (compute cycle 5514668)
+mem_stall at tick 5550727 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 53 execution at tick 5550727 (iteration 0 out of 1)
+running NPU-0: 54 / 128 (starting at 5550727 cycle)
+Stalled request returned at tick 5551696: NPU-0 (compute cycle 5550727)
+mem_stall at tick 5551696 (NPU-0)
+End of layer
+(gpt3-13b0, Linear1_T51, Conv): (compute_cycle 5551696)
+Stalled request returned at tick 5560548: NPU-0 (compute cycle 5554058)
+mem_stall at tick 5560548 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 54 execution at tick 5560548 (iteration 0 out of 1)
+running NPU-0: 55 / 128 (starting at 5560548 cycle)
+Stalled request returned at tick 5645448: NPU-0 (compute cycle 5560548)
+mem_stall at tick 5645448 (NPU-0)
+End of layer
+(gpt3-13b0, Linear2_T0, Conv): (compute_cycle 5645448)
+Stalled request returned at tick 5874723: NPU-0 (compute cycle 5842310)
+mem_stall at tick 5874723 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 55 execution at tick 5874723 (iteration 0 out of 1)
+running NPU-0: 56 / 128 (starting at 5874723 cycle)
+Stalled request returned at tick 5959667: NPU-0 (compute cycle 5874723)
+mem_stall at tick 5959667 (NPU-0)
+End of layer
+(gpt3-13b0, Linear2_T1, Conv): (compute_cycle 5959667)
+Stalled request returned at tick 6187342: NPU-0 (compute cycle 6156529)
+mem_stall at tick 6187342 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 56 execution at tick 6187342 (iteration 0 out of 1)
+running NPU-0: 57 / 128 (starting at 6187342 cycle)
+Stalled request returned at tick 6272242: NPU-0 (compute cycle 6187342)
+mem_stall at tick 6272242 (NPU-0)
+End of layer
+(gpt3-13b0, Linear2_T2, Conv): (compute_cycle 6272242)
+Stalled request returned at tick 6495163: NPU-0 (compute cycle 6469104)
+mem_stall at tick 6495163 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 57 execution at tick 6495163 (iteration 0 out of 1)
+running NPU-0: 58 / 128 (starting at 6495163 cycle)
+Stalled request returned at tick 6580063: NPU-0 (compute cycle 6495163)
+mem_stall at tick 6580063 (NPU-0)
+End of layer
+(gpt3-13b0, Linear2_T3, Conv): (compute_cycle 6580063)
+Stalled request returned at tick 6795784: NPU-0 (compute cycle 6776925)
+mem_stall at tick 6795784 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 58 execution at tick 6795784 (iteration 0 out of 1)
+running NPU-0: 59 / 128 (starting at 6795784 cycle)
+Stalled request returned at tick 6810353: NPU-0 (compute cycle 6795784)
+mem_stall at tick 6810353 (NPU-0)
+End of layer
+(gpt3-13b0, Linear2_T4, Conv): (compute_cycle 6810353)
+Stalled request returned at tick 6855095: NPU-0 (compute cycle 6844015)
+mem_stall at tick 6855095 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 59 execution at tick 6855095 (iteration 0 out of 1)
+running NPU-0: 60 / 128 (starting at 6855095 cycle)
+Stalled request returned at tick 6887278: NPU-0 (compute cycle 6855095)
+mem_stall at tick 6887278 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L1_T0, Conv): (compute_cycle 6887278)
+Stalled request returned at tick 7043209: NPU-0 (compute cycle 6965996)
+mem_stall at tick 7043209 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 60 execution at tick 7043209 (iteration 0 out of 1)
+running NPU-0: 61 / 128 (starting at 7043209 cycle)
+Stalled request returned at tick 7065378: NPU-0 (compute cycle 7043209)
+mem_stall at tick 7065378 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L1_T1, Conv): (compute_cycle 7065378)
+Stalled request returned at tick 7170765: NPU-0 (compute cycle 7118752)
+mem_stall at tick 7170765 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 61 execution at tick 7170765 (iteration 0 out of 1)
+running NPU-0: 62 / 128 (starting at 7170765 cycle)
+Stalled request returned at tick 7202948: NPU-0 (compute cycle 7170765)
+mem_stall at tick 7202948 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L1_T2, Conv): (compute_cycle 7202948)
+Stalled request returned at tick 7354125: NPU-0 (compute cycle 7281666)
+mem_stall at tick 7354125 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 62 execution at tick 7354125 (iteration 0 out of 1)
+running NPU-0: 63 / 128 (starting at 7354125 cycle)
+Stalled request returned at tick 7376294: NPU-0 (compute cycle 7354125)
+mem_stall at tick 7376294 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L1_T3, Conv): (compute_cycle 7376294)
+Stalled request returned at tick 7479741: NPU-0 (compute cycle 7429668)
+mem_stall at tick 7479741 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 63 execution at tick 7479741 (iteration 0 out of 1)
+running NPU-0: 64 / 128 (starting at 7479741 cycle)
+Stalled request returned at tick 7511945: NPU-0 (compute cycle 7479741)
+mem_stall at tick 7511945 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L1_T4, Conv): (compute_cycle 7511945)
+Stalled request returned at tick 7660322: NPU-0 (compute cycle 7590663)
+mem_stall at tick 7660322 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 64 execution at tick 7660322 (iteration 0 out of 1)
+running NPU-0: 65 / 128 (starting at 7660322 cycle)
+Stalled request returned at tick 7682505: NPU-0 (compute cycle 7660322)
+mem_stall at tick 7682505 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L1_T5, Conv): (compute_cycle 7682505)
+Stalled request returned at tick 7785138: NPU-0 (compute cycle 7735879)
+mem_stall at tick 7785138 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 65 execution at tick 7785138 (iteration 0 out of 1)
+running NPU-0: 66 / 128 (starting at 7785138 cycle)
+Stalled request returned at tick 7817307: NPU-0 (compute cycle 7785138)
+mem_stall at tick 7817307 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L1_T6, Conv): (compute_cycle 7817307)
+Stalled request returned at tick 7965684: NPU-0 (compute cycle 7896025)
+mem_stall at tick 7965684 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 66 execution at tick 7965684 (iteration 0 out of 1)
+running NPU-0: 67 / 128 (starting at 7965684 cycle)
+Stalled request returned at tick 7987853: NPU-0 (compute cycle 7965684)
+mem_stall at tick 7987853 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L1_T7, Conv): (compute_cycle 7987853)
+Stalled request returned at tick 8090440: NPU-0 (compute cycle 8041227)
+mem_stall at tick 8090440 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 67 execution at tick 8090440 (iteration 0 out of 1)
+running NPU-0: 68 / 128 (starting at 8090440 cycle)
+Stalled request returned at tick 8122596: NPU-0 (compute cycle 8090440)
+mem_stall at tick 8122596 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L1_T8, Conv): (compute_cycle 8122596)
+Stalled request returned at tick 8270927: NPU-0 (compute cycle 8201314)
+mem_stall at tick 8270927 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 68 execution at tick 8270927 (iteration 0 out of 1)
+running NPU-0: 69 / 128 (starting at 8270927 cycle)
+Stalled request returned at tick 8293096: NPU-0 (compute cycle 8270927)
+mem_stall at tick 8293096 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L1_T9, Conv): (compute_cycle 8293096)
+Stalled request returned at tick 8396543: NPU-0 (compute cycle 8346470)
+mem_stall at tick 8396543 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 69 execution at tick 8396543 (iteration 0 out of 1)
+running NPU-0: 70 / 128 (starting at 8396543 cycle)
+Stalled request returned at tick 8428712: NPU-0 (compute cycle 8396543)
+mem_stall at tick 8428712 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L1_T10, Conv): (compute_cycle 8428712)
+Stalled request returned at tick 8575903: NPU-0 (compute cycle 8507430)
+mem_stall at tick 8575903 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 70 execution at tick 8575903 (iteration 0 out of 1)
+running NPU-0: 71 / 128 (starting at 8575903 cycle)
+Stalled request returned at tick 8598055: NPU-0 (compute cycle 8575903)
+mem_stall at tick 8598055 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L1_T11, Conv): (compute_cycle 8598055)
+Stalled request returned at tick 8701442: NPU-0 (compute cycle 8651429)
+mem_stall at tick 8701442 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 71 execution at tick 8701442 (iteration 0 out of 1)
+running NPU-0: 72 / 128 (starting at 8701442 cycle)
+Stalled request returned at tick 8733594: NPU-0 (compute cycle 8701442)
+mem_stall at tick 8733594 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L1_T12, Conv): (compute_cycle 8733594)
+Stalled request returned at tick 8880771: NPU-0 (compute cycle 8812312)
+mem_stall at tick 8880771 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 72 execution at tick 8880771 (iteration 0 out of 1)
+running NPU-0: 73 / 128 (starting at 8880771 cycle)
+Stalled request returned at tick 8902940: NPU-0 (compute cycle 8880771)
+mem_stall at tick 8902940 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L1_T13, Conv): (compute_cycle 8902940)
+Stalled request returned at tick 9006327: NPU-0 (compute cycle 8956314)
+mem_stall at tick 9006327 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 73 execution at tick 9006327 (iteration 0 out of 1)
+running NPU-0: 74 / 128 (starting at 9006327 cycle)
+Stalled request returned at tick 9038496: NPU-0 (compute cycle 9006327)
+mem_stall at tick 9038496 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L1_T14, Conv): (compute_cycle 9038496)
+Stalled request returned at tick 9185721: NPU-0 (compute cycle 9117214)
+mem_stall at tick 9185721 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 74 execution at tick 9185721 (iteration 0 out of 1)
+running NPU-0: 75 / 128 (starting at 9185721 cycle)
+Stalled request returned at tick 9207840: NPU-0 (compute cycle 9185721)
+mem_stall at tick 9207840 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L1_T15, Conv): (compute_cycle 9207840)
+Stalled request returned at tick 9310827: NPU-0 (compute cycle 9261214)
+mem_stall at tick 9310827 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 75 execution at tick 9310827 (iteration 0 out of 1)
+running NPU-0: 76 / 128 (starting at 9310827 cycle)
+Stalled request returned at tick 9342975: NPU-0 (compute cycle 9310827)
+mem_stall at tick 9342975 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L1_T16, Conv): (compute_cycle 9342975)
+Stalled request returned at tick 9490106: NPU-0 (compute cycle 9421693)
+mem_stall at tick 9490106 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 76 execution at tick 9490106 (iteration 0 out of 1)
+running NPU-0: 77 / 128 (starting at 9490106 cycle)
+Stalled request returned at tick 9512547: NPU-0 (compute cycle 9490106)
+mem_stall at tick 9512547 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L1_T17, Conv): (compute_cycle 9512547)
+Stalled request returned at tick 9614380: NPU-0 (compute cycle 9565921)
+mem_stall at tick 9614380 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 77 execution at tick 9614380 (iteration 0 out of 1)
+running NPU-0: 78 / 128 (starting at 9614380 cycle)
+Stalled request returned at tick 9646549: NPU-0 (compute cycle 9614380)
+mem_stall at tick 9646549 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L1_T18, Conv): (compute_cycle 9646549)
+Stalled request returned at tick 9793302: NPU-0 (compute cycle 9725267)
+mem_stall at tick 9793302 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 78 execution at tick 9793302 (iteration 0 out of 1)
+running NPU-0: 79 / 128 (starting at 9793302 cycle)
+Stalled request returned at tick 9815007: NPU-0 (compute cycle 9793302)
+mem_stall at tick 9815007 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L1_T19, Conv): (compute_cycle 9815007)
+Stalled request returned at tick 9915641: NPU-0 (compute cycle 9868381)
+mem_stall at tick 9915641 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 79 execution at tick 9915641 (iteration 0 out of 1)
+running NPU-0: 80 / 128 (starting at 9915641 cycle)
+Stalled request returned at tick 9947785: NPU-0 (compute cycle 9915641)
+mem_stall at tick 9947785 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L1_T20, Conv): (compute_cycle 9947785)
+Stalled request returned at tick 10094516: NPU-0 (compute cycle 10026503)
+mem_stall at tick 10094516 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 80 execution at tick 10094516 (iteration 0 out of 1)
+running NPU-0: 81 / 128 (starting at 10094516 cycle)
+Stalled request returned at tick 10116208: NPU-0 (compute cycle 10094516)
+mem_stall at tick 10116208 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L1_T21, Conv): (compute_cycle 10116208)
+Stalled request returned at tick 10217255: NPU-0 (compute cycle 10169582)
+mem_stall at tick 10217255 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 81 execution at tick 10217255 (iteration 0 out of 1)
+running NPU-0: 82 / 128 (starting at 10217255 cycle)
+Stalled request returned at tick 10249647: NPU-0 (compute cycle 10217255)
+mem_stall at tick 10249647 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L1_T22, Conv): (compute_cycle 10249647)
+Stalled request returned at tick 10396838: NPU-0 (compute cycle 10328365)
+mem_stall at tick 10396838 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 82 execution at tick 10396838 (iteration 0 out of 1)
+running NPU-0: 83 / 128 (starting at 10396838 cycle)
+Stalled request returned at tick 10418943: NPU-0 (compute cycle 10396838)
+mem_stall at tick 10418943 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L1_T23, Conv): (compute_cycle 10418943)
+Stalled request returned at tick 10519930: NPU-0 (compute cycle 10472317)
+mem_stall at tick 10519930 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 83 execution at tick 10519930 (iteration 0 out of 1)
+running NPU-0: 84 / 128 (starting at 10519930 cycle)
+Stalled request returned at tick 10552070: NPU-0 (compute cycle 10519930)
+mem_stall at tick 10552070 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L1_T24, Conv): (compute_cycle 10552070)
+Stalled request returned at tick 10699247: NPU-0 (compute cycle 10630788)
+mem_stall at tick 10699247 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 84 execution at tick 10699247 (iteration 0 out of 1)
+running NPU-0: 85 / 128 (starting at 10699247 cycle)
+Stalled request returned at tick 10720216: NPU-0 (compute cycle 10699247)
+mem_stall at tick 10720216 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L1_T25, Conv): (compute_cycle 10720216)
+Stalled request returned at tick 10819603: NPU-0 (compute cycle 10773590)
+mem_stall at tick 10819603 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 85 execution at tick 10819603 (iteration 0 out of 1)
+running NPU-0: 86 / 128 (starting at 10819603 cycle)
+Stalled request returned at tick 10851772: NPU-0 (compute cycle 10819603)
+mem_stall at tick 10851772 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L1_T26, Conv): (compute_cycle 10851772)
+Stalled request returned at tick 10998949: NPU-0 (compute cycle 10930490)
+mem_stall at tick 10998949 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 86 execution at tick 10998949 (iteration 0 out of 1)
+running NPU-0: 87 / 128 (starting at 10998949 cycle)
+Stalled request returned at tick 11019918: NPU-0 (compute cycle 10998949)
+mem_stall at tick 11019918 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L1_T27, Conv): (compute_cycle 11019918)
+Stalled request returned at tick 11119237: NPU-0 (compute cycle 11073292)
+mem_stall at tick 11119237 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 87 execution at tick 11119237 (iteration 0 out of 1)
+running NPU-0: 88 / 128 (starting at 11119237 cycle)
+Stalled request returned at tick 11151373: NPU-0 (compute cycle 11119237)
+mem_stall at tick 11151373 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L1_T28, Conv): (compute_cycle 11151373)
+Stalled request returned at tick 11297704: NPU-0 (compute cycle 11230091)
+mem_stall at tick 11297704 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 88 execution at tick 11297704 (iteration 0 out of 1)
+running NPU-0: 89 / 128 (starting at 11297704 cycle)
+Stalled request returned at tick 11319809: NPU-0 (compute cycle 11297704)
+mem_stall at tick 11319809 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L1_T29, Conv): (compute_cycle 11319809)
+Stalled request returned at tick 11417656: NPU-0 (compute cycle 11373183)
+mem_stall at tick 11417656 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 89 execution at tick 11417656 (iteration 0 out of 1)
+running NPU-0: 90 / 128 (starting at 11417656 cycle)
+Stalled request returned at tick 11449839: NPU-0 (compute cycle 11417656)
+mem_stall at tick 11449839 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L1_T30, Conv): (compute_cycle 11449839)
+Stalled request returned at tick 11596170: NPU-0 (compute cycle 11528557)
+mem_stall at tick 11596170 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 90 execution at tick 11596170 (iteration 0 out of 1)
+running NPU-0: 91 / 128 (starting at 11596170 cycle)
+Stalled request returned at tick 11617489: NPU-0 (compute cycle 11596170)
+mem_stall at tick 11617489 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L1_T31, Conv): (compute_cycle 11617489)
+Stalled request returned at tick 11713336: NPU-0 (compute cycle 11670863)
+mem_stall at tick 11713336 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 91 execution at tick 11713336 (iteration 0 out of 1)
+running NPU-0: 92 / 128 (starting at 11713336 cycle)
+Stalled request returned at tick 11745468: NPU-0 (compute cycle 11713336)
+mem_stall at tick 11745468 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L1_T32, Conv): (compute_cycle 11745468)
+Stalled request returned at tick 11891799: NPU-0 (compute cycle 11824186)
+mem_stall at tick 11891799 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 92 execution at tick 11891799 (iteration 0 out of 1)
+running NPU-0: 93 / 128 (starting at 11891799 cycle)
+Stalled request returned at tick 11913104: NPU-0 (compute cycle 11891799)
+mem_stall at tick 11913104 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L1_T33, Conv): (compute_cycle 11913104)
+Stalled request returned at tick 12008891: NPU-0 (compute cycle 11966478)
+mem_stall at tick 12008891 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 93 execution at tick 12008891 (iteration 0 out of 1)
+running NPU-0: 94 / 128 (starting at 12008891 cycle)
+Stalled request returned at tick 12041060: NPU-0 (compute cycle 12008891)
+mem_stall at tick 12041060 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L1_T34, Conv): (compute_cycle 12041060)
+Stalled request returned at tick 12187391: NPU-0 (compute cycle 12119778)
+mem_stall at tick 12187391 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 94 execution at tick 12187391 (iteration 0 out of 1)
+running NPU-0: 95 / 128 (starting at 12187391 cycle)
+Stalled request returned at tick 12209560: NPU-0 (compute cycle 12187391)
+mem_stall at tick 12209560 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L1_T35, Conv): (compute_cycle 12209560)
+Stalled request returned at tick 12305347: NPU-0 (compute cycle 12262934)
+mem_stall at tick 12305347 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 95 execution at tick 12305347 (iteration 0 out of 1)
+running NPU-0: 96 / 128 (starting at 12305347 cycle)
+Stalled request returned at tick 12337475: NPU-0 (compute cycle 12305347)
+mem_stall at tick 12337475 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L1_T36, Conv): (compute_cycle 12337475)
+Stalled request returned at tick 12483806: NPU-0 (compute cycle 12416193)
+mem_stall at tick 12483806 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 96 execution at tick 12483806 (iteration 0 out of 1)
+running NPU-0: 97 / 128 (starting at 12483806 cycle)
+Stalled request returned at tick 12505975: NPU-0 (compute cycle 12483806)
+mem_stall at tick 12505975 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L1_T37, Conv): (compute_cycle 12505975)
+Stalled request returned at tick 12600622: NPU-0 (compute cycle 12559349)
+mem_stall at tick 12600622 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 97 execution at tick 12600622 (iteration 0 out of 1)
+running NPU-0: 98 / 128 (starting at 12600622 cycle)
+Stalled request returned at tick 12632791: NPU-0 (compute cycle 12600622)
+mem_stall at tick 12632791 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L1_T38, Conv): (compute_cycle 12632791)
+Stalled request returned at tick 12778368: NPU-0 (compute cycle 12711509)
+mem_stall at tick 12778368 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 98 execution at tick 12778368 (iteration 0 out of 1)
+running NPU-0: 99 / 128 (starting at 12778368 cycle)
+Stalled request returned at tick 12800537: NPU-0 (compute cycle 12778368)
+mem_stall at tick 12800537 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L1_T39, Conv): (compute_cycle 12800537)
+Stalled request returned at tick 12894724: NPU-0 (compute cycle 12853911)
+mem_stall at tick 12894724 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 99 execution at tick 12894724 (iteration 0 out of 1)
+running NPU-0: 100 / 128 (starting at 12894724 cycle)
+Stalled request returned at tick 12926848: NPU-0 (compute cycle 12894724)
+mem_stall at tick 12926848 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L1_T40, Conv): (compute_cycle 12926848)
+Stalled request returned at tick 13072439: NPU-0 (compute cycle 13005566)
+mem_stall at tick 13072439 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 100 execution at tick 13072439 (iteration 0 out of 1)
+running NPU-0: 101 / 128 (starting at 13072439 cycle)
+Stalled request returned at tick 13094608: NPU-0 (compute cycle 13072439)
+mem_stall at tick 13094608 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L1_T41, Conv): (compute_cycle 13094608)
+Stalled request returned at tick 13189255: NPU-0 (compute cycle 13147982)
+mem_stall at tick 13189255 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 101 execution at tick 13189255 (iteration 0 out of 1)
+running NPU-0: 102 / 128 (starting at 13189255 cycle)
+Stalled request returned at tick 13221469: NPU-0 (compute cycle 13189255)
+mem_stall at tick 13221469 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L1_T42, Conv): (compute_cycle 13221469)
+Stalled request returned at tick 13367800: NPU-0 (compute cycle 13300187)
+mem_stall at tick 13367800 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 102 execution at tick 13367800 (iteration 0 out of 1)
+running NPU-0: 103 / 128 (starting at 13367800 cycle)
+Stalled request returned at tick 13389920: NPU-0 (compute cycle 13367800)
+mem_stall at tick 13389920 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L1_T43, Conv): (compute_cycle 13389920)
+Stalled request returned at tick 13484953: NPU-0 (compute cycle 13443294)
+mem_stall at tick 13484953 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 103 execution at tick 13484953 (iteration 0 out of 1)
+running NPU-0: 104 / 128 (starting at 13484953 cycle)
+Stalled request returned at tick 13517087: NPU-0 (compute cycle 13484953)
+mem_stall at tick 13517087 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L1_T44, Conv): (compute_cycle 13517087)
+Stalled request returned at tick 13663418: NPU-0 (compute cycle 13595805)
+mem_stall at tick 13663418 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 104 execution at tick 13663418 (iteration 0 out of 1)
+running NPU-0: 105 / 128 (starting at 13663418 cycle)
+Stalled request returned at tick 13685631: NPU-0 (compute cycle 13663418)
+mem_stall at tick 13685631 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L1_T45, Conv): (compute_cycle 13685631)
+Stalled request returned at tick 13781878: NPU-0 (compute cycle 13739005)
+mem_stall at tick 13781878 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 105 execution at tick 13781878 (iteration 0 out of 1)
+running NPU-0: 106 / 128 (starting at 13781878 cycle)
+Stalled request returned at tick 13814247: NPU-0 (compute cycle 13781878)
+mem_stall at tick 13814247 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L1_T46, Conv): (compute_cycle 13814247)
+Stalled request returned at tick 13960578: NPU-0 (compute cycle 13892965)
+mem_stall at tick 13960578 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 106 execution at tick 13960578 (iteration 0 out of 1)
+running NPU-0: 107 / 128 (starting at 13960578 cycle)
+Stalled request returned at tick 13982747: NPU-0 (compute cycle 13960578)
+mem_stall at tick 13982747 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L1_T47, Conv): (compute_cycle 13982747)
+Stalled request returned at tick 14078994: NPU-0 (compute cycle 14036121)
+mem_stall at tick 14078994 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 107 execution at tick 14078994 (iteration 0 out of 1)
+running NPU-0: 108 / 128 (starting at 14078994 cycle)
+Stalled request returned at tick 14111110: NPU-0 (compute cycle 14078994)
+mem_stall at tick 14111110 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L1_T48, Conv): (compute_cycle 14111110)
+Stalled request returned at tick 14257441: NPU-0 (compute cycle 14189828)
+mem_stall at tick 14257441 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 108 execution at tick 14257441 (iteration 0 out of 1)
+running NPU-0: 109 / 128 (starting at 14257441 cycle)
+Stalled request returned at tick 14279610: NPU-0 (compute cycle 14257441)
+mem_stall at tick 14279610 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L1_T49, Conv): (compute_cycle 14279610)
+Stalled request returned at tick 14375864: NPU-0 (compute cycle 14332984)
+mem_stall at tick 14375864 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 109 execution at tick 14375864 (iteration 0 out of 1)
+running NPU-0: 110 / 128 (starting at 14375864 cycle)
+Stalled request returned at tick 14379233: NPU-0 (compute cycle 14375864)
+mem_stall at tick 14379233 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L1_T50, Conv): (compute_cycle 14379233)
+Stalled request returned at tick 14452154: NPU-0 (compute cycle 14387295)
+mem_stall at tick 14452154 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 110 execution at tick 14452154 (iteration 0 out of 1)
+running NPU-0: 111 / 128 (starting at 14452154 cycle)
+Stalled request returned at tick 14454323: NPU-0 (compute cycle 14452154)
+mem_stall at tick 14454323 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L1_T51, Conv): (compute_cycle 14454323)
+Stalled request returned at tick 14501544: NPU-0 (compute cycle 14459885)
+mem_stall at tick 14501544 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 111 execution at tick 14501544 (iteration 0 out of 1)
+running NPU-0: 112 / 128 (starting at 14501544 cycle)
+Stalled request returned at tick 14586489: NPU-0 (compute cycle 14501544)
+mem_stall at tick 14586489 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L2_T0, Conv): (compute_cycle 14586489)
+Stalled request returned at tick 14815764: NPU-0 (compute cycle 14783351)
+mem_stall at tick 14815764 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 112 execution at tick 14815764 (iteration 0 out of 1)
+running NPU-0: 113 / 128 (starting at 14815764 cycle)
+Stalled request returned at tick 14900664: NPU-0 (compute cycle 14815764)
+mem_stall at tick 14900664 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L2_T1, Conv): (compute_cycle 14900664)
+Stalled request returned at tick 15117939: NPU-0 (compute cycle 15097526)
+mem_stall at tick 15117939 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 113 execution at tick 15117939 (iteration 0 out of 1)
+running NPU-0: 114 / 128 (starting at 15117939 cycle)
+Stalled request returned at tick 15202839: NPU-0 (compute cycle 15117939)
+mem_stall at tick 15202839 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L2_T2, Conv): (compute_cycle 15202839)
+Stalled request returned at tick 15421714: NPU-0 (compute cycle 15399701)
+mem_stall at tick 15421714 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 114 execution at tick 15421714 (iteration 0 out of 1)
+running NPU-0: 115 / 128 (starting at 15421714 cycle)
+Stalled request returned at tick 15506783: NPU-0 (compute cycle 15421714)
+mem_stall at tick 15506783 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L2_T3, Conv): (compute_cycle 15506783)
+Stalled request returned at tick 15727258: NPU-0 (compute cycle 15703645)
+mem_stall at tick 15727258 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 115 execution at tick 15727258 (iteration 0 out of 1)
+running NPU-0: 116 / 128 (starting at 15727258 cycle)
+Stalled request returned at tick 15812158: NPU-0 (compute cycle 15727258)
+mem_stall at tick 15812158 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L2_T4, Conv): (compute_cycle 15812158)
+Stalled request returned at tick 16027079: NPU-0 (compute cycle 16009020)
+mem_stall at tick 16027079 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 116 execution at tick 16027079 (iteration 0 out of 1)
+running NPU-0: 117 / 128 (starting at 16027079 cycle)
+Stalled request returned at tick 16111979: NPU-0 (compute cycle 16027079)
+mem_stall at tick 16111979 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L2_T5, Conv): (compute_cycle 16111979)
+Stalled request returned at tick 16325750: NPU-0 (compute cycle 16308841)
+mem_stall at tick 16325750 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 117 execution at tick 16325750 (iteration 0 out of 1)
+running NPU-0: 118 / 128 (starting at 16325750 cycle)
+Stalled request returned at tick 16410664: NPU-0 (compute cycle 16325750)
+mem_stall at tick 16410664 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L2_T6, Conv): (compute_cycle 16410664)
+Stalled request returned at tick 16626785: NPU-0 (compute cycle 16607526)
+mem_stall at tick 16626785 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 118 execution at tick 16626785 (iteration 0 out of 1)
+running NPU-0: 119 / 128 (starting at 16626785 cycle)
+Stalled request returned at tick 16711883: NPU-0 (compute cycle 16626785)
+mem_stall at tick 16711883 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L2_T7, Conv): (compute_cycle 16711883)
+Stalled request returned at tick 16924358: NPU-0 (compute cycle 16908745)
+mem_stall at tick 16924358 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 119 execution at tick 16924358 (iteration 0 out of 1)
+running NPU-0: 120 / 128 (starting at 16924358 cycle)
+Stalled request returned at tick 17009258: NPU-0 (compute cycle 16924358)
+mem_stall at tick 17009258 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L2_T8, Conv): (compute_cycle 17009258)
+Stalled request returned at tick 17225379: NPU-0 (compute cycle 17206120)
+mem_stall at tick 17225379 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 120 execution at tick 17225379 (iteration 0 out of 1)
+running NPU-0: 121 / 128 (starting at 17225379 cycle)
+Stalled request returned at tick 17310279: NPU-0 (compute cycle 17225379)
+mem_stall at tick 17310279 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L2_T9, Conv): (compute_cycle 17310279)
+Stalled request returned at tick 17522354: NPU-0 (compute cycle 17507141)
+mem_stall at tick 17522354 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 121 execution at tick 17522354 (iteration 0 out of 1)
+running NPU-0: 122 / 128 (starting at 17522354 cycle)
+Stalled request returned at tick 17607254: NPU-0 (compute cycle 17522354)
+mem_stall at tick 17607254 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L2_T10, Conv): (compute_cycle 17607254)
+Stalled request returned at tick 17820175: NPU-0 (compute cycle 17804116)
+mem_stall at tick 17820175 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 122 execution at tick 17820175 (iteration 0 out of 1)
+running NPU-0: 123 / 128 (starting at 17820175 cycle)
+Stalled request returned at tick 17905283: NPU-0 (compute cycle 17820175)
+mem_stall at tick 17905283 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L2_T11, Conv): (compute_cycle 17905283)
+Stalled request returned at tick 18124558: NPU-0 (compute cycle 18102145)
+mem_stall at tick 18124558 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 123 execution at tick 18124558 (iteration 0 out of 1)
+running NPU-0: 124 / 128 (starting at 18124558 cycle)
+Stalled request returned at tick 18209503: NPU-0 (compute cycle 18124558)
+mem_stall at tick 18209503 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L2_T12, Conv): (compute_cycle 18209503)
+Stalled request returned at tick 18422424: NPU-0 (compute cycle 18406365)
+mem_stall at tick 18422424 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 124 execution at tick 18422424 (iteration 0 out of 1)
+running NPU-0: 125 / 128 (starting at 18422424 cycle)
+Stalled request returned at tick 18507324: NPU-0 (compute cycle 18422424)
+mem_stall at tick 18507324 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L2_T13, Conv): (compute_cycle 18507324)
+Stalled request returned at tick 18726245: NPU-0 (compute cycle 18704186)
+mem_stall at tick 18726245 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 125 execution at tick 18726245 (iteration 0 out of 1)
+running NPU-0: 126 / 128 (starting at 18726245 cycle)
+Stalled request returned at tick 18810814: NPU-0 (compute cycle 18726245)
+mem_stall at tick 18810814 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L2_T14, Conv): (compute_cycle 18810814)
+Stalled request returned at tick 19026949: NPU-0 (compute cycle 19007676)
+mem_stall at tick 19026949 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 126 execution at tick 19026949 (iteration 0 out of 1)
+running NPU-0: 127 / 128 (starting at 19026949 cycle)
+Stalled request returned at tick 19111849: NPU-0 (compute cycle 19026949)
+mem_stall at tick 19111849 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L2_T15, Conv): (compute_cycle 19111849)
+Stalled request returned at tick 19327970: NPU-0 (compute cycle 19308711)
+mem_stall at tick 19327970 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 127 execution at tick 19327970 (iteration 0 out of 1)
+running NPU-0: 128 / 128 (starting at 19327970 cycle)
+Stalled request returned at tick 19391262: NPU-0 (compute cycle 19327970)
+mem_stall at tick 19391262 (NPU-0)
+End of layer
+(gpt3-13b0, PW-FF-L2_T16, Conv): (compute_cycle 19391262)
+Stalled request returned at tick 19548650: NPU-0 (compute cycle 19537564)
+mem_stall at tick 19548650 (NPU-0)
+End of NPU-0 execution at tick 19548650 (iteration 1 out of 1)
+*** Stat of DRAM ***
+Read Request: 5308262
+Write Request: 8390080
+*** End of DRAM Stat ***
+*** Stat of TLB 0 ***
+Access: 13698342
+Miss: 190528
+*** End of TLB 0 Stat
+consumed 0x155df000B out of 0x200000000B

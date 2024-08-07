@@ -1,0 +1,7 @@
+Layer name, IFMAP Height, IFMAP Width, Filter Height, Filter Width, Channels, Num Filter, Strides, Type, IFMAP Base Addr, Filter Base Addr, Ofmap Base Addr,
+QKT,512,128,128,512,1,1,1,Gemm,-1,-1,-1,
+QKTV,512,512,512,128,1,1,1,Gemm,-2,-2,-1,
+Linear1,512,7168,7168,21504,1,1,1,Gemm,-2,-2,-1,
+Linear2,512,7168,7168,7168,1,1,1,Gemm,-2,-2,-1,
+PW-FF-L1,512,7168,7168,28672,1,1,1,Gemm,-2,-2,-1,
+PW-FF-L2,512,28672,28672,7168,1,1,1,Gemm,-2,-2,-1,

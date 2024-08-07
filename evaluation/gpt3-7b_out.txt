@@ -1,0 +1,241 @@
+export LD_LIBRARY_PATH=./DRAMsim3:$LD_LIBRARY_PATH &&\
+./mnpusim arch_config/core_architecture_list/tpu.txt network_config/netconfig_list/single/gpt3-7b.txt dram_config/total_dram_config/single_hbm2_256gbs.cfg npumem_config/npumem_architecture_list/single.txt singe_gpt3-7b misc_config/single.cfg
+Page size: 0x1000B
+DRAM configuration file name: dram_config/single_dram_config/HBM2_8Gb_x128.ini
+1 Modules in total
+parsing result
+1. arch_parsing
+arch_name: arch_tpu_small
+systolic_array(width x height): 128 x 128
+sram_size(ifmap, filter, ofmap): 12582912, 12582912, 12582912 Bytes
+tile_size(ifmap, filter, ofmap): 6291456, 6291456, 6291456 Bytes
+dataflow: os
+element_unit: 1 Bytes
+unit_compute: 1
+2. network_parsing
+model_name, layer_name, ifmap(width x height x channel), filter(width x height x channel x # of filter), stride, layer_type, ifmap_base_addr, filter_base_addr, ofmap_base_addr
+gpt3-7b, QKT, 128 x 512 x 1, 512 x 128 x 1 x 1, 1, Gemm, 18446744073709551615, 18446744073709551615, 18446744073709551615
+gpt3-7b, QKTV, 512 x 512 x 1, 128 x 512 x 1 x 1, 1, Gemm, 18446744073709551614, 18446744073709551614, 18446744073709551615
+gpt3-7b, Linear1, 4096 x 512 x 1, 12288 x 4096 x 1 x 1, 1, Gemm, 18446744073709551614, 18446744073709551614, 18446744073709551615
+gpt3-7b, Linear2, 4096 x 512 x 1, 4096 x 4096 x 1 x 1, 1, Gemm, 18446744073709551614, 18446744073709551614, 18446744073709551615
+gpt3-7b, PW-FF-L1, 4096 x 512 x 1, 512 x 4096 x 1 x 1, 1, Gemm, 18446744073709551614, 18446744073709551614, 18446744073709551615
+gpt3-7b, PW-FF-L2, 512 x 512 x 1, 4096 x 512 x 1 x 1, 1, Gemm, 18446744073709551614, 18446744073709551614, 18446744073709551615
+---------------------------------------------------------------------------
+processing: 1 / 6
+processing: 2 / 6
+processing: 3 / 6
+processing: 4 / 6
+processing: 5 / 6
+processing: 6 / 6
+intermediate_config_name: singe_gpt3-7b/intermediate_config/gpt3-7b0.csv
+parsing result
+1. arch_parsing
+arch_name: arch_tpu_small
+systolic_array(width x height): 128 x 128
+sram_size(ifmap, filter, ofmap): 12582912, 12582912, 12582912 Bytes
+tile_size(ifmap, filter, ofmap): 6291456, 6291456, 6291456 Bytes
+dataflow: os
+element_unit: 1 Bytes
+unit_compute: 1
+2. network_parsing
+model_name, layer_name, ifmap(width x height x channel), filter(width x height x channel x # of filter), stride, layer_type, ifmap_base_addr, filter_base_addr, ofmap_base_addr
+gpt3-7b0, QKT_T0, 1 x 512 x 128, 1 x 1 x 128 x 512, 1, Conv, 0, 0, 131072
+gpt3-7b0, QKTV_T0, 1 x 512 x 512, 1 x 1 x 512 x 128, 1, Conv, 393216, 655360, 720896
+gpt3-7b0, Linear1_T0, 1 x 512 x 512, 1 x 1 x 512 x 12288, 1, Conv, 786432, 2883584, 53215232
+gpt3-7b0, Linear1_T1, 1 x 512 x 512, 1 x 1 x 512 x 12288, 1, Conv, 1048576, 9175040, 53215232
+gpt3-7b0, Linear1_T2, 1 x 512 x 512, 1 x 1 x 512 x 12288, 1, Conv, 1310720, 15466496, 53215232
+gpt3-7b0, Linear1_T3, 1 x 512 x 512, 1 x 1 x 512 x 12288, 1, Conv, 1572864, 21757952, 53215232
+gpt3-7b0, Linear1_T4, 1 x 512 x 512, 1 x 1 x 512 x 12288, 1, Conv, 1835008, 28049408, 53215232
+gpt3-7b0, Linear1_T5, 1 x 512 x 512, 1 x 1 x 512 x 12288, 1, Conv, 2097152, 34340864, 53215232
+gpt3-7b0, Linear1_T6, 1 x 512 x 512, 1 x 1 x 512 x 12288, 1, Conv, 2359296, 40632320, 53215232
+gpt3-7b0, Linear1_T7, 1 x 512 x 512, 1 x 1 x 512 x 12288, 1, Conv, 2621440, 46923776, 53215232
+gpt3-7b0, Linear2_T0, 1 x 512 x 1536, 1 x 1 x 1536 x 4096, 1, Conv, 59506688, 61603840, 78381056
+gpt3-7b0, Linear2_T1, 1 x 512 x 1536, 1 x 1 x 1536 x 4096, 1, Conv, 60293120, 67895296, 78381056
+gpt3-7b0, Linear2_T2, 1 x 512 x 1024, 1 x 1 x 1024 x 4096, 1, Conv, 61079552, 74186752, 78381056
+gpt3-7b0, PW-FF-L1_T0, 1 x 512 x 4096, 1 x 1 x 4096 x 512, 1, Conv, 80478208, 82575360, 84672512
+gpt3-7b0, PW-FF-L2_T0, 1 x 512 x 512, 1 x 1 x 512 x 4096, 1, Conv, 84934656, 85196800, 87293952
+---------------------------------------------------------------------------
+Page address: 0x0 ~ 0x200000000
+NPU-0 with DRAM partition 8589934592 B, Local SPM 37748736 B, and 8-way TLB with 2048 entries
+Assigned SPM idx: 0, 1
+8 PTWs with miss latency of 400
+TLB hit latency: 5 / miss latency: 400 / bandwidth: 0 access per cycle
+vpn_bitmask: 0xfffffffffff00000
+set_bitmask: 0xff000
+Separated PTW. No partitioning applied.
+Pre-run of NPU 0
+prerunning: 1 / 15
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 2 / 15
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 3 / 15
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 4 / 15
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 5 / 15
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 6 / 15
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 7 / 15
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 8 / 15
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 9 / 15
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 10 / 15
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 11 / 15
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 12 / 15
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 13 / 15
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 14 / 15
+cacheline_size: 64
+tile(eff_conv): 1
+prerunning: 15 / 15
+cacheline_size: 64
+tile(eff_conv): 1
+Run with 1 NPUs
+running NPU-0: 1 / 15 (starting at 0 cycle)
+Stalled request returned at tick 969: NPU-0 (compute cycle 0)
+mem_stall at tick 969 (NPU-0)
+End of layer
+(gpt3-7b0, QKT_T0, Conv): (compute_cycle 969)
+Stalled request returned at tick 6658: NPU-0 (compute cycle 3399)
+mem_stall at tick 6658 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 1 execution at tick 6658 (iteration 0 out of 1)
+running NPU-0: 2 / 15 (starting at 6658 cycle)
+Stalled request returned at tick 10827: NPU-0 (compute cycle 6658)
+mem_stall at tick 10827 (NPU-0)
+End of layer
+(gpt3-7b0, QKTV_T0, Conv): (compute_cycle 10827)
+Stalled request returned at tick 14116: NPU-0 (compute cycle 13257)
+mem_stall at tick 14116 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 2 execution at tick 14116 (iteration 0 out of 1)
+running NPU-0: 3 / 15 (starting at 14116 cycle)
+Stalled request returned at tick 94285: NPU-0 (compute cycle 14116)
+mem_stall at tick 94285 (NPU-0)
+End of layer
+(gpt3-7b0, Linear1_T0, Conv): (compute_cycle 94285)
+Stalled request returned at tick 368134: NPU-0 (compute cycle 291275)
+mem_stall at tick 368134 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 3 execution at tick 368134 (iteration 0 out of 1)
+running NPU-0: 4 / 15 (starting at 368134 cycle)
+Stalled request returned at tick 448317: NPU-0 (compute cycle 368134)
+mem_stall at tick 448317 (NPU-0)
+End of layer
+(gpt3-7b0, Linear1_T1, Conv): (compute_cycle 448317)
+Stalled request returned at tick 709380: NPU-0 (compute cycle 645307)
+mem_stall at tick 709380 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 4 execution at tick 709380 (iteration 0 out of 1)
+running NPU-0: 5 / 15 (starting at 709380 cycle)
+Stalled request returned at tick 789549: NPU-0 (compute cycle 709380)
+mem_stall at tick 789549 (NPU-0)
+End of layer
+(gpt3-7b0, Linear1_T2, Conv): (compute_cycle 789549)
+Stalled request returned at tick 1050598: NPU-0 (compute cycle 986539)
+mem_stall at tick 1050598 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 5 execution at tick 1050598 (iteration 0 out of 1)
+running NPU-0: 6 / 15 (starting at 1050598 cycle)
+Stalled request returned at tick 1130781: NPU-0 (compute cycle 1050598)
+mem_stall at tick 1130781 (NPU-0)
+End of layer
+(gpt3-7b0, Linear1_T3, Conv): (compute_cycle 1130781)
+Stalled request returned at tick 1391844: NPU-0 (compute cycle 1327771)
+mem_stall at tick 1391844 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 6 execution at tick 1391844 (iteration 0 out of 1)
+running NPU-0: 7 / 15 (starting at 1391844 cycle)
+Stalled request returned at tick 1472013: NPU-0 (compute cycle 1391844)
+mem_stall at tick 1472013 (NPU-0)
+End of layer
+(gpt3-7b0, Linear1_T4, Conv): (compute_cycle 1472013)
+Stalled request returned at tick 1737062: NPU-0 (compute cycle 1669003)
+mem_stall at tick 1737062 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 7 execution at tick 1737062 (iteration 0 out of 1)
+running NPU-0: 8 / 15 (starting at 1737062 cycle)
+Stalled request returned at tick 1817245: NPU-0 (compute cycle 1737062)
+mem_stall at tick 1817245 (NPU-0)
+End of layer
+(gpt3-7b0, Linear1_T5, Conv): (compute_cycle 1817245)
+Stalled request returned at tick 2078308: NPU-0 (compute cycle 2014235)
+mem_stall at tick 2078308 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 8 execution at tick 2078308 (iteration 0 out of 1)
+running NPU-0: 9 / 15 (starting at 2078308 cycle)
+Stalled request returned at tick 2158477: NPU-0 (compute cycle 2078308)
+mem_stall at tick 2158477 (NPU-0)
+End of layer
+(gpt3-7b0, Linear1_T6, Conv): (compute_cycle 2158477)
+Stalled request returned at tick 2419526: NPU-0 (compute cycle 2355467)
+mem_stall at tick 2419526 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 9 execution at tick 2419526 (iteration 0 out of 1)
+running NPU-0: 10 / 15 (starting at 2419526 cycle)
+Stalled request returned at tick 2499709: NPU-0 (compute cycle 2419526)
+mem_stall at tick 2499709 (NPU-0)
+End of layer
+(gpt3-7b0, Linear1_T7, Conv): (compute_cycle 2499709)
+Stalled request returned at tick 2760772: NPU-0 (compute cycle 2696699)
+mem_stall at tick 2760772 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 10 execution at tick 2760772 (iteration 0 out of 1)
+running NPU-0: 11 / 15 (starting at 2760772 cycle)
+Stalled request returned at tick 2847447: NPU-0 (compute cycle 2760772)
+mem_stall at tick 2847447 (NPU-0)
+End of layer
+(gpt3-7b0, Linear2_T0, Conv): (compute_cycle 2847447)
+Stalled request returned at tick 3070096: NPU-0 (compute cycle 3044437)
+mem_stall at tick 3070096 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 11 execution at tick 3070096 (iteration 0 out of 1)
+running NPU-0: 12 / 15 (starting at 3070096 cycle)
+Stalled request returned at tick 3156665: NPU-0 (compute cycle 3070096)
+mem_stall at tick 3156665 (NPU-0)
+End of layer
+(gpt3-7b0, Linear2_T1, Conv): (compute_cycle 3156665)
+Stalled request returned at tick 3372114: NPU-0 (compute cycle 3353655)
+mem_stall at tick 3372114 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 12 execution at tick 3372114 (iteration 0 out of 1)
+running NPU-0: 13 / 15 (starting at 3372114 cycle)
+Stalled request returned at tick 3429883: NPU-0 (compute cycle 3372114)
+mem_stall at tick 3429883 (NPU-0)
+End of layer
+(gpt3-7b0, Linear2_T2, Conv): (compute_cycle 3429883)
+Stalled request returned at tick 3570057: NPU-0 (compute cycle 3561337)
+mem_stall at tick 3570057 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 13 execution at tick 3570057 (iteration 0 out of 1)
+running NPU-0: 14 / 15 (starting at 3570057 cycle)
+Stalled request returned at tick 3621426: NPU-0 (compute cycle 3570057)
+mem_stall at tick 3621426 (NPU-0)
+End of layer
+(gpt3-7b0, PW-FF-L1_T0, Conv): (compute_cycle 3621426)
+Stalled request returned at tick 3690603: NPU-0 (compute cycle 3687344)
+mem_stall at tick 3690603 (NPU-0)
+End of NPU-0 layer(or tile for out-im2col conv) 14 execution at tick 3690603 (iteration 0 out of 1)
+running NPU-0: 15 / 15 (starting at 3690603 cycle)
+Stalled request returned at tick 3719572: NPU-0 (compute cycle 3690603)
+mem_stall at tick 3719572 (NPU-0)
+End of layer
+(gpt3-7b0, PW-FF-L2_T0, Conv): (compute_cycle 3719572)
+Stalled request returned at tick 3811149: NPU-0 (compute cycle 3785490)
+mem_stall at tick 3811149 (NPU-0)
+End of NPU-0 execution at tick 3811149 (iteration 1 out of 1)
+*** Stat of DRAM ***
+Read Request: 1222656
+Write Request: 926720
+*** End of DRAM Stat ***
+*** Stat of TLB 0 ***
+Access: 2149376
+Miss: 31216
+*** End of TLB 0 Stat
+consumed 0x5530000B out of 0x200000000B
